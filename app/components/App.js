@@ -1,31 +1,38 @@
 import React, { Component } from 'react';
-import { Router, Route, Link, IndexRoute, hashHistory, browserHistory, useRouterHistory } from 'react-router';
-import { createHistory } from 'history';
+import { 
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Link 
+} from 'react-router-dom';
+//import { createHistory } from 'history';
 
-import NotFound from './NotFound.jsx';
+import NotFound from './NotFound.js';
 
-import Home from '../containers/Home.jsx';
-import Arena from '../containers/Arena.jsx';
-import Carta from '../containers/Carta.jsx';
-import Chest from '../containers/Chest.jsx';
-import Player from '../containers/Player.jsx';
+/**
+* Importar componentes
+*/
+import Home from '../containers/Home.js';
+import Arena from '../containers/Arena.js';
+import Carta from '../containers/Carta.js';
+import Chest from '../containers/Chest.js';
+import Player from '../containers/Player.js';
 
 export default class App extends Component {
   render() {
     return (
-      <Router history={hashHistory}>
-        <Route path='/' component={Container}>
-          <IndexRoute component={Home}/>
-          <Route path='/arenas' component={Arena}>
-          </Route>
-          <Route path='/cartas' component={Carta}>
-          </Route>
-          <Route path='/chests' component={Chest}>
-          </Route>
-          <Route path='/players' component={Player}>
-          </Route>
-          <Route path='*' component={NotFound} />
-        </Route>
+      <Router>
+        <div>
+          <Route path='/' component={Container} />
+          <Switch>
+            <Route exact path='/' component={Home}/>
+            <Route path="/arenas" component={Arena} />
+            <Route path='/cartas' component={Carta} />
+            <Route path='/chests' component={Chest} />
+            <Route path='/players' component={Player} />
+            <Route path='*' component={NotFound} />
+          </Switch>
+        </div>
       </Router>
     );
   }
@@ -33,7 +40,13 @@ export default class App extends Component {
 
 const Nav = () => (
   <div>
-    <Link to='/'>Home</Link>&nbsp;
+    <Link to='/'>Home</Link>
+    <Link to='/arenas'>Arena</Link>
+    <Link to='/cartas'>Cartas</Link>
+    <Link to='/chests'>Chests</Link>
+    <Link to='/players'>Players</Link>
+    &nbsp;
+
   </div>
 );
 
