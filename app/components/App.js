@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { 
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Link 
+    BrowserRouter as Router,
+    Route,
+    Switch,
+    Link 
 } from 'react-router-dom';
-//import { createHistory } from 'history';
 
 import NotFound from './NotFound.js';
 
@@ -19,40 +18,39 @@ import Chest from '../containers/Chest.js';
 import Player from '../containers/Player.js';
 
 export default class App extends Component {
-  render() {
-    return (
-      <Router>
-        <div>
-          <Route path='/' component={Container} />
-          <Switch>
-            <Route exact path='/' component={Home}/>
-            <Route path="/arenas" component={Arena} />
-            <Route path='/cartas' component={Carta} />
-            <Route path='/chests' component={Chest} />
-            <Route path='/players' component={Player} />
-            <Route path='*' component={NotFound} />
-          </Switch>
-        </div>
-      </Router>
-    );
-  }
+    render() {
+        return (
+        <Router>
+            <div>
+            <Route path='/' component={Container} />
+            <Switch>
+                <Route exact path='/' component={Home}/>
+                <Route path="/arenas" component={Arena} />
+                <Route path='/cartas' component={Carta} />
+                <Route path='/chests' component={Chest} />
+                <Route path='/players' component={Player} />
+                <Route path='*' component={NotFound} />
+            </Switch>
+            </div>
+        </Router>
+        );
+    }
 }
 
 const Nav = () => (
-  <div>
-    <Link to='/'>Home</Link>
-    <Link to='/arenas'>Arena</Link>
-    <Link to='/cartas'>Cartas</Link>
-    <Link to='/chests'>Chests</Link>
-    <Link to='/players'>Players</Link>
-    &nbsp;
-
-  </div>
+    <div>
+        <Link to='/'>Home</Link>
+        <Link to='/arenas'>Arena</Link>
+        <Link to='/cartas'>Cartas</Link>
+        <Link to='/chests'>Chests</Link>
+        <Link to='/players'>Players</Link>
+        &nbsp;
+    </div>
 );
 
 const Container = (props) => (
-  <div>
-    <Nav />
-    {props.children}
-  </div>
+    <div>
+        <Nav />
+        {props.children}
+    </div>
 );
