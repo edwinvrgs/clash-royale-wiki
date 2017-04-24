@@ -1,4 +1,6 @@
-# Wikiroyale - React-based wiki for the mobile game Clash Royale
+# Wikiroyale
+
+## React-based wiki for the mobile game Clash Royale
 
 ###### If you wanna try on local...
 
