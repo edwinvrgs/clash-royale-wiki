@@ -14,6 +14,6 @@ yarn start
 ```
 ... then, on your browser, check _localhost:1801_
 
-###### If you dont wanna try on local
+###### If you dont wanna try on local...
 
 [Wikiroyale on Netlify](http://wikiroyale.netlify.com/) :+1: 
