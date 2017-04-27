@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Carta from "../components/Carta.js";
 
-export default class cartasList extends Component {
+export default class CartaView extends Component {
     constructor(props){
         super(props);
         this.state = {

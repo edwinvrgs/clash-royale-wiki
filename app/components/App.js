@@ -13,7 +13,7 @@ import NotFound from './NotFound.js';
 */
 import Home from '../containers/Home.js';
 import Arena from '../containers/Arena.js';
-import CartaList from '../containers/CartaList.js';
+import CartaView from '../containers/CartaView.js';
 import Chest from '../containers/Chest.js';
 import Player from '../containers/Player.js';
 
@@ -27,7 +27,7 @@ export default class App extends Component {
             <Switch>
                 <Route exact path='/' component={Home}/>
                 <Route path="/arenas" component={Arena} />
-                {<Route path='/cartas' component={CartaList} />}
+                {<Route path='/cartas' component={CartaView} />}
                 <Route path='/chests' component={Chest} />
                 <Route path='/players' component={Player} />
                 <Route path='*' component={NotFound} />
