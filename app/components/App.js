@@ -27,7 +27,7 @@ export default class App extends Component {
             <Switch>
                 <Route exact path='/' component={Home}/>
                 <Route path="/arenas" component={Arena} />
-                {<Route path='/cartas' component={CartaView} />}
+                <Route path='/cartas' component={CartaView} />
                 <Route path='/chests' component={Chest} />
                 <Route path='/players' component={Player} />
                 <Route path='*' component={NotFound} />

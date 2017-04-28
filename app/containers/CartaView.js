@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
 import Carta from "../components/Carta.js";
+import Titulos from "../components/Titulos";
 
 export default class CartaView extends Component {
     constructor(props){
         super(props);
         this.state = {
-            cartas:[]
-            
+            cartas:[],
+            titulos:[
+                "Nombre",
+                "Descripcion",
+                "Costo de Elixir",
+                "Tipo",
+                "Rareza"
+            ]
         }
     }
 
     componentDidMount() {
+        //const fetchedtitles= [];
         fetch('http://www.clashapi.xyz/api/cards')
             .then(response => response.json())
             .then(data => {
@@ -20,37 +28,30 @@ export default class CartaView extends Component {
             });
     }
     
-
-    render() {
-        const {cartas} = this.state;
-        return (
+    render(){
+        return(
             <div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Costo de elixir</th>
-                            <th>Tipo</th>
-                            <th>Rareza</th>
-                            <th>Descripción</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            cartas.map(carta=>
-                                <Carta 
-                                    key={carta._id}
-                                    name={carta.name}
-                                    description={carta.description}
-                                    elixirCost={carta.elixirCost}
-                                    type={carta.type}
-                                    rarity={carta.rarity}
-                                /> 
-                            )
-                        }
-                    </tbody>
-                </table>
+                <Titulos titulos={this.state.titulos}/>
+                {this.renderCartas()}
             </div>
+
         );
     }
+
+    renderCartas() {
+        const {cartas} = this.state;
+        return (
+            cartas.map(carta=>
+                <Carta 
+                    key={carta._id}
+                    name={carta.name}
+                    description={carta.description}
+                    elixirCost={carta.elixirCost}
+                    type={carta.type}
+                    rarity={carta.rarity}
+                /> 
+            )
+        )
+    }
 }
+
