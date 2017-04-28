@@ -32,6 +32,7 @@ export default class CartaView extends Component {
         return(
             <div>
                 <Titulos titulos={this.state.titulos}/>
+                <br/>
                 {this.renderCartas()}
             </div>
 

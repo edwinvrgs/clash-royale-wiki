@@ -5,6 +5,7 @@ class Titulos extends Component {
     render(){
         return(
             <div>
+                <br/>
                 {this.renderTitulos()}
             </div>
         );
