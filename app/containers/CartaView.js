@@ -23,12 +23,22 @@ export default class CartaView extends Component {
         this.applyfilterByRarity = this.applyfilterByRarity.bind(this);
         this.applyfilterByCost = this.applyfilterByCost.bind(this);
         this.applyfilterByType = this.applyfilterByType.bind(this);
+        this.clearFilter = this.clearFilter.bind(this);
 
     }
 
     onSearchChange(event){
         this.setState({
             searchCard:event.target.value
+        })
+    }
+
+    clearFilter(){
+        this.setState({
+            searchCard:"",
+            cardRarity:"",
+            cardCost: null,
+            cardType:""
         })
     }
 
@@ -101,8 +111,8 @@ export default class CartaView extends Component {
                 <label>Tipo</label>
                 <button onClick={this.applyfilterByType} value="spell">Hechizo</button>
                 <button onClick={this.applyfilterByType} value="troop">Tropa</button>
-                
-
+                <br/>
+                <button onClick={this.clearFilter}>Limpiar filtros</button>                
                 <Titulos titulos={titulos}/>
                 <br/>
                 {this.renderCartas(filteredCards)}
