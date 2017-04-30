@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Carta from "../components/Carta.js";
-import Titulos from "../components/Titulos";
+import FiltroCartas from "../components/FiltroCartas";
 
 export default class CartaView extends Component {
     constructor(props){
@@ -24,7 +24,6 @@ export default class CartaView extends Component {
         this.applyfilterByCost = this.applyfilterByCost.bind(this);
         this.applyfilterByType = this.applyfilterByType.bind(this);
         this.clearFilter = this.clearFilter.bind(this);
-
     }
 
     onSearchChange(event){
@@ -87,34 +86,14 @@ export default class CartaView extends Component {
 
         return(
             <div>
-                <br/>
-                <input type="text" placeholder="Ingrese nombre de la carta" onChange={this.onSearchChange}/>
-                <br/>
-                <label >Rareza: </label>
-                <button onClick={this.applyfilterByRarity} value="common">Comunes</button>
-                <button onClick={this.applyfilterByRarity} value="rare">Raros</button>
-                <button onClick={this.applyfilterByRarity} value="epic">Epicos</button>
-                <button onClick={this.applyfilterByRarity} value="legendary">Legendarios</button>
-                <br/>
-                <label >Costo: </label>
-                <button onClick={this.applyfilterByCost} value="0">0</button>
-                <button onClick={this.applyfilterByCost} value="1">1</button>
-                <button onClick={this.applyfilterByCost} value="2">2</button>
-                <button onClick={this.applyfilterByCost} value="3">3</button>
-                <button onClick={this.applyfilterByCost} value="4">4</button>
-                <button onClick={this.applyfilterByCost} value="5">5</button>
-                <button onClick={this.applyfilterByCost} value="6">6</button>
-                <button onClick={this.applyfilterByCost} value="7">7</button>
-                <button onClick={this.applyfilterByCost} value="8">8</button>
-                <button onClick={this.applyfilterByCost} value="9">9</button>
-                <br/>
-                <label>Tipo</label>
-                <button onClick={this.applyfilterByType} value="spell">Hechizo</button>
-                <button onClick={this.applyfilterByType} value="troop">Tropa</button>
-                <br/>
-                <button onClick={this.clearFilter}>Limpiar filtros</button>                
-                <Titulos titulos={titulos}/>
-                <br/>
+                <FiltroCartas
+                    onSearchChange={this.onSearchChange}
+                    applyfilterByRarity={this.applyfilterByRarity}
+                    applyfilterByCost={this.applyfilterByCost}
+                    applyfilterByType={this.applyfilterByType}
+                    clearFilter={this.clearFilter}
+                    titulos={titulos}
+                />
                 {this.renderCartas(filteredCards)}
             </div>
 
@@ -122,7 +101,6 @@ export default class CartaView extends Component {
     }
 
     renderCartas(filteredCards) {
-        //const {cartas} = this.state;
         return (
             filteredCards.map(carta=>
                 <Carta 
@@ -132,6 +110,7 @@ export default class CartaView extends Component {
                     elixirCost={carta.elixirCost}
                     type={carta.type}
                     rarity={carta.rarity}
+                    idName={carta.idName}
                 /> 
             )
         )
