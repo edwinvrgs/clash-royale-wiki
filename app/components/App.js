@@ -16,6 +16,7 @@ import Arena from '../containers/Arena.js';
 import CartaView from '../containers/CartaView.js';
 import Chest from '../containers/Chest.js';
 import Player from '../containers/Player.js';
+import LeagueView from '../containers/LeagueView';
 
 export default class App extends Component {
 
@@ -28,6 +29,7 @@ export default class App extends Component {
                 <Route exact path='/' component={Home}/>
                 <Route path="/arenas" component={Arena} />
                 <Route path='/cartas' component={CartaView} />
+                <Route path='/ligas' component={LeagueView} />
                 <Route path='/chests' component={Chest} />
                 <Route path='/players' component={Player} />
                 <Route path='*' component={NotFound} />
@@ -41,17 +43,18 @@ export default class App extends Component {
 const Nav = () => (
     <div>
         <Link to='/'>Home</Link>
-        <Link to='/arenas'>Arena</Link>
+        <Link to='/arenas'>Arenas</Link>
         <Link to='/cartas'>Cartas</Link>
+        <Link to='/ligas'>Ligas</Link>
         <Link to='/chests'>Chests</Link>
         <Link to='/players'>Players</Link>
         &nbsp;
     </div>
 );
 
-const Container = (props) => (
+const Container = () => (
     <div>
         <Nav />
-        {props.children}
+        {/*props.children*/}
     </div>
 );
