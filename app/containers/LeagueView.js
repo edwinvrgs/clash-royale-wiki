@@ -34,13 +34,14 @@ class LeagueView extends Component {
 
         return (
             ligas.map(liga =>
-                <LeagueList 
+                <LeagueList
+                    key={liga._id}
                     _id={liga._id}
                     idName={liga.idName}
                     number={liga.number}
                     name={liga.name}
                     victoryGold={liga.victoryGold}
-                    minTrophies={liga.victoryGold}
+                    minTrophies={liga.minTrophies}
                     order={liga.order}
                     arena={liga.arena}
                     chests={liga.chests}
